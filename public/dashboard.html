@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Lighting Dashboard</h1>
+  <button id="logoutBtn">Logout</button>
+  <div>
+    <label>
+      <input type="checkbox" id="lightToggle"> Light On/Off
+    </label>
+  </div>
+  <div>
+    <input type="color" id="colorPicker">
+    <button id="setColorBtn">Set Color</button>
+  </div>
+  <div>
+    <p>Temperature: <span id="temp">--</span> °C</p>
+    <button id="refreshTemp">Refresh</button>
+  </div>
+  <div>
+    <h2>Camera Feed</h2>
+    <img id="cameraFeed" src="/api/camera" alt="Camera feed">
+  </div>
+  <p><a href="help.html">Help</a></p>
+  <script src="app.js"></script>
+</body>
+</html>
