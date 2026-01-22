@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patrol Report Studio</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">PRS</div>
+          <div>
+            <h1>Patrol Report Studio</h1>
+            <p>Audio-first reporting for field officers</p>
+          </div>
+        </div>
+        <div class="panel">
+          <h2>Quick Actions</h2>
+          <button class="primary" id="startRecording">Start Recording</button>
+          <button class="ghost" id="stopRecording" disabled>Stop &amp; Transcribe</button>
+          <button class="ghost" id="generateReport" disabled>Generate Report</button>
+        </div>
+        <div class="panel">
+          <h2>Downloads</h2>
+          <button class="ghost" id="downloadDoc" disabled>Download Word Doc</button>
+          <button class="ghost" id="downloadPdf" disabled>Download PDF</button>
+          <p class="hint">Submit final report to enable downloads.</p>
+        </div>
+      </aside>
+
+      <main>
+        <section class="hero">
+          <div>
+            <h2>Record, transcribe, and deliver polished reports.</h2>
+            <p>
+              Capture audio in the field, turn it into structured narratives, and keep
+              searchable records for every incident.
+            </p>
+          </div>
+          <div class="status-card" id="recordingStatus">
+            <span class="status-label">Status</span>
+            <span class="status-value">Ready</span>
+          </div>
+        </section>
+
+        <section class="grid">
+          <div class="card">
+            <header>
+              <h3>Live Transcription</h3>
+              <span class="chip" id="transcriptionBadge">Idle</span>
+            </header>
+            <textarea
+              id="transcription"
+              placeholder="Start a recording to generate a transcript."
+              readonly
+            ></textarea>
+            <div class="meta">
+              <span>Confidence</span>
+              <strong id="confidenceScore">--</strong>
+            </div>
+          </div>
+          <div class="card">
+            <header>
+              <h3>Generated Report</h3>
+              <span class="chip" id="reportBadge">Draft</span>
+            </header>
+            <textarea
+              id="reportEditor"
+              placeholder="Your report will appear here. You can edit before submitting."
+            ></textarea>
+            <div class="actions">
+              <button class="primary" id="submitReport" disabled>Submit Report</button>
+              <button class="ghost" id="clearReport" disabled>Clear Draft</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="card search">
+          <header>
+            <h3>Search Past Reports</h3>
+            <div class="search-box">
+              <input type="text" id="searchInput" placeholder="Search by keyword, location, or officer" />
+              <span class="icon">⌕</span>
+            </div>
+          </header>
+          <div class="report-list" id="reportList"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
